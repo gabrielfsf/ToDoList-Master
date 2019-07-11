@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -40,4 +41,21 @@ public class TaskController {
         
         return "newTaskForm";
     }
+	
+	@DeleteMapping("/")
+	public String deleteAllTasks(Model model) {
+		taskServiceImpl.deleteAll();
+		model.addAttribute("message", "Successfully deleted all taks!");
+		return "result";
+	}
+	
+//	@DeleteMapping("/{id}")
+//	public String deleteTaskById(@PathVariable Integer id, Model model) {
+//		taskServiceImpl.deleteById(id);
+//		model.addAttribute("message", "Task deleted successfully");
+//		return "result";
+//	}
+	
+	
+	
 }

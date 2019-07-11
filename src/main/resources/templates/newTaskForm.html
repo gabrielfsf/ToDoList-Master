@@ -2,22 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<!-- <link th:replace="fragments/headLinks"> -->
-	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-	
 	<title>To-Do App</title>
 </head>
 <body>
 	<div class="container">
-	    <!-- <div th:replace="fragments/navBar"></div> -->
-	    
 	    <nav class="row navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <div class="navbar-header">
 		            <a class="navbar-brand" href="/" style="color: #00aced">
-		                <i class="fas fa-clipboard-list"></i> To-Do App</a>
+		            <i class="fas fa-clipboard-list"></i> To-Do App</a>
 		        </div>
 		        <div id="navbar">
 				    <ul class="nav navbar-nav">
@@ -26,12 +21,10 @@
 		        </div>
 		    </div>
 		</nav>
-	    
+		
 	    <h1>To-Do List</h1>
-	    <form th:action="@{/new}" method="post" autocomplete="off">
-	        
-	        
-	        
+	    
+	    <form th:action="@{/new}" method="post" autocomplete="on">
 		    <div class="form-group">
 			    <label class="form-control-label" for="category">Category</label>
 			    <input type="text" th:field="*{task.category}" placeholder="Bills, School, Grocery..." class="form-control" id="category" required/>
@@ -42,22 +35,16 @@
 		    </div>
 		    <div class="form-group">
 			    <label class="form-control-label" for="status">Status</label>
-			    <select th:field="*{task.status}" autofocus class="form-control" id="status">
-			        <option th:value="${task.status}" >To-Do</option>
-			        <option th:value="${task.status}" >In-Progress</option>
-			        <option th:value="${task.status}" >Completed</option>
-		    	</select>
+			    <input type="text" th:field="*{task.status}" placeholder="To-Do, In-Progress..." class="form-control" id="status" required/>
 		    </div>
-			
-	        
-	        
 	        <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
 	    </form>
+	    
 	    <div th:if="${successMessage}">
 	        <h3><span class="text-success" th:utext="${successMessage}"></span></h3>
 	    </div>
+	    
 	</div>
-	<!-- <div th:replace="fragments/scripts"></div>  --> 
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

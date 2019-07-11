@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Task</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+	<div class="container">
+	    <nav class="row navbar navbar-inverse">
+		    <div class="container-fluid">
+		        <div class="navbar-header">
+		            <a class="navbar-brand" href="/" style="color: #00aced">
+		            <i class="fas fa-clipboard-list"></i> To-Do App</a>
+		        </div>
+		        <div id="navbar">
+				    <ul class="nav navbar-nav">
+				        <li><a href="/">Home</a></li>
+				    </ul>
+		        </div>
+		    </div>
+		</nav>
+		
+		<h1><div th:text="${message}"></div></h1>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -9,13 +9,10 @@ import javax.persistence.Id;
 public class Task {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
 	private String category;
-	
 	private String description;
-	
 	private String status;;
 	
 	public Task() {
@@ -31,8 +28,8 @@ public class Task {
 	public String getCategory() {
 		return category;
 	}
-
-	public void setUser(String category) {
+	
+	public void setCategory(String category) {
 		this.category = category;
 	}
 

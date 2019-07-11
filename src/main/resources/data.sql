@@ -1,1 +1,0 @@
-INSERT INTO task(id, category, description, status) VALUES (1, 'Bills', 'Pay Verizon Bill', 'To-Do'), (2, 'School', 'Create To-Do App', 'To-Do'), (3, 'Grocery', 'Buy dog food', 'To-Do'), (4, 'Bills', 'Pay Rent', 'To-Do');

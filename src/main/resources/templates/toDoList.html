@@ -2,18 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<meta charset="UTF-8">
     <title>To-Do List</title>
-    <!-- <div th:replace="fragments/headLinks"></div> -->
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-	<link rel="stylesheet" href="/custom.css">
-    
 </head>
 
 <body>
     <div class="container">
-    	<!-- <div th:replace="fragments/navbar"></div> -->	
     	
     	<nav class="row navbar navbar-inverse">
 		    <div class="container-fluid">
@@ -47,13 +43,24 @@
 			    </tr>
 			</tbody>
 		</table>
-  
+		
+		<div th:if="${taskList.empty}">
+			<h1>No Tasks Available</h1>
+		</div>
+		
+		<div th:if="${!taskList.empty}">
+			<form th:action="@{/}" th:method="delete">
+				<button type="submit" class="btn btn-danger">Delete All</button>
+			</form>
+		</div>
+		<div th:if="${message}">
+	        <h3><span class="text-success" th:utext="${message}"></span></h3>
+	    </div>
+		
     </div>
-    <!-- <div th:replace="fragments/scripts"></div> -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="/custom.js"></script>
     
 </body>
 </html>

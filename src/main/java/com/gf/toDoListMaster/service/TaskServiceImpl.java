@@ -33,4 +33,31 @@ public class TaskServiceImpl implements TaskServiceI {
 	public List<Task> findByCategory(String category) {
 		return taskRepository.findAllTaskByCategory(category);
 	}
+
+	@Override
+	public void deleteAll() {
+		taskRepository.deleteAll();
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		taskRepository.deleteById(id);
+	}
+
+	@Override
+	public Task findById(Integer id) {
+		return taskRepository.findTaskById(id);
+	}
+
+	@Override
+	public void updateTaskById(Integer id, Task task) {
+		Task taskToUpdate = taskRepository.findTaskById(id);
+		String category = task.getCategory();
+		String description = task.getDescription();
+		String status = task.getStatus();
+		if(category != null) taskToUpdate.setCategory(category);
+		if(description != null) taskToUpdate.setDescription(description);
+		if(status != null) taskToUpdate.setStatus(status);
+		taskRepository.save(taskToUpdate);
+	}
 }
