@@ -21,6 +21,9 @@
 				    <ul class="nav navbar-nav">
 				        <li><a href="/new">New Task</a></li>
 				    </ul>
+				    <ul class="nav navbar-nav" style="box-align: right">
+				        <li><a href="/api/tasks">Tasks API</a></li>
+				    </ul>
 		        </div>
 		    </div>
 		</nav>
@@ -33,6 +36,8 @@
 				    <th scope="col">Category</th>
 				    <th scope="col">Description</th>
 				    <th scope="col">Status</th>
+				    <th scope="col">Update</th>
+				    <th scope="col">Delete</th>
 			    </tr>
 			</thead>  
 		  	<tbody th:each="task:${taskList}">
@@ -40,9 +45,18 @@
 				    <th scope="row" th:text="${task.category}"></th>
 				    <td th:text="${task.description}"></td>
 				    <td th:text="${task.status}"></td>
+				    <td><a class="btn btn-secondary" th:href="@{/update/} + ${task.id}">Edit</a></td>
+				    <td>
+				    	<form class="" th:object="${task}" th:action="@{/} + ${task.id}" th:method="delete">
+							<input class="btn btn-danger" type="submit" value="Delete">
+						</form>
+					</td>
 			    </tr>
 			</tbody>
 		</table>
+		<div th:if="${message}">
+	        <h3><span class="text-success" th:utext="${message}"></span></h3>
+	    </div>
 		
 		<div th:if="${taskList.empty}">
 			<h1>No Tasks Available</h1>

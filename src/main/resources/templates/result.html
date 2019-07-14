@@ -18,11 +18,19 @@
 				    <ul class="nav navbar-nav">
 				        <li><a href="/">Home</a></li>
 				    </ul>
+				    <ul class="nav navbar-nav">
+				        <li><a href="/new">New Task</a></li>
+				    </ul>
+				    <ul class="nav navbar-nav" style="box-align: right">
+				        <li><a href="/api/tasks">Tasks API</a></li>
+				    </ul>
 		        </div>
 		    </div>
 		</nav>
 		
-		<h1><div th:text="${message}"></div></h1>
+		<div th:if="${message}">
+	        <h1><span class="text-success" th:text="${message}"></span></h1>
+	    </div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
