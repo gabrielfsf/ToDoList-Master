@@ -26,7 +26,7 @@ public class RestApiController {
 	}
 	
 	@GetMapping("/tasks/{id}")
-	public Task findById(Integer id) {
+	public Task findById(@PathVariable Integer id) {
 		return taskServiceImpl.findById(id);
 	}
 	
