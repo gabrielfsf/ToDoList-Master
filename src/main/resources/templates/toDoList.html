@@ -45,7 +45,7 @@
 				    <th scope="row" th:text="${task.category}"></th>
 				    <td th:text="${task.description}"></td>
 				    <td th:text="${task.status}"></td>
-				    <td><a class="btn btn-secondary" th:href="@{/update/} + ${task.id}">Edit</a></td>
+				    <td><a class="btn" th:href="@{/update/} + ${task.id}">Edit</a></td>
 				    <td>
 				    	<form class="" th:object="${task}" th:action="@{/} + ${task.id}" th:method="delete">
 							<input class="btn btn-danger" type="submit" value="Delete">
